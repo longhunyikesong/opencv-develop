@@ -26,6 +26,13 @@ int main(int argc, char *argv[])
 		cerr << "ERROR! Unable to open camera\n";
 		return -1;
 	}
+	cout << "width x height is " << cap.get(CAP_PROP_FRAME_WIDTH)
+		<< "x" << cap.get(CAP_PROP_FRAME_HEIGHT) << endl;
+	cap.set(CAP_PROP_FRAME_WIDTH, 1280);
+	cap.set(CAP_PROP_FRAME_HEIGHT, 720);
+
+	cout << "width x height is " << cap.get(CAP_PROP_FRAME_WIDTH)
+		<< "x" << cap.get(CAP_PROP_FRAME_HEIGHT) << endl;
 
 	cout << "Start grabbing" << endl
 	   << "Press any key to terminate" << endl;
