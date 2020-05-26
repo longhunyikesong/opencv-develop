@@ -13,7 +13,7 @@ set(LINK_DIRS /usr/local/lib)
 include_directories(${INCLUDE_DIRS})
 link_directories(${LINK_DIRS})
 
-set(OpenCV_LIBS opencv_core opencv_highgui opencv_videoio)
+set(OpenCV_LIBS opencv_core opencv_highgui opencv_videoio opencv_imgproc)
 
 add_executable(videocapture main.cpp)
 target_link_libraries(videocapture PRIVATE ${OpenCV_LIBS})

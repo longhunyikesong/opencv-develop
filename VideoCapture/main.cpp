@@ -7,6 +7,7 @@
 #include <opencv2/core.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
 #include <iostream>
 #include <stdio.h>
 
@@ -36,7 +37,7 @@ int main(int argc, char *argv[])
 
 	cout << "Start grabbing" << endl
 	   << "Press any key to terminate" << endl;
-
+	Mat out;
 	for (;;) {
 		//wait for a new fram from camera and store it into 'frame'
 		cap.read(frame);
@@ -45,8 +46,11 @@ int main(int argc, char *argv[])
 			cerr << "ERROR! blank frame grabbed\n";
 			break;
 		}
+
+
+		boxFilter(frame, out, -1, Size(5, 5));
 		//show live and wait for a key with timeout long enough to show images
-		imshow("Live", frame);
+		imshow("Live", out);
 		if (waitKey(5) >= 0)
 			break;
 	}
